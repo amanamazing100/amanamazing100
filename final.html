@@ -1,0 +1,249 @@
+<!DOCTYPE>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/final.css" type="text/css">
+
+</head>
+<body>
+<script>
+var corrSound = new Audio();
+corrSound.src="correct.wav";
+var wrongSound = new Audio();
+wrongSound.src="wrong.mp3";
+
+</script>
+<div id="container">
+<div id="header">
+<div id="timer" >
+Timer</div>
+<script>
+function displayLeaderboards(noGrid){
+	document.getElementById('leaderboardsDisplay').textContent='Leaderboards';
+	let leaderText="leaderboards"+String(Math.sqrt(noGrid));
+	let ab=localStorage.getItem(leaderText);
+	let useArray=JSON.parse(ab);
+	let tempArray=[];
+	tempArray=useArray;
+	let list1=document.createElement("ul");
+	list1.style.listStyleType="none";
+	console.log(tempArray.length);
+	if(tempArray.length>=1){
+	var li1=document.createElement("li");
+	li1.appendChild(document.createTextNode(tempArray[0]));
+	list1.appendChild(li1);}
+	if(tempArray.length>=2){
+	var li2=document.createElement("li");
+	li2.appendChild(document.createTextNode(tempArray[1]));
+	list1.appendChild(li2);}
+	if(tempArray.length>=3){
+	var li3=document.createElement("li");
+	li3.appendChild(document.createTextNode(tempArray[2]));
+	list1.appendChild(li3);}
+	if(tempArray.length>=4){
+	var li4=document.createElement("li");
+	li4.appendChild(document.createTextNode(tempArray[3]));
+	list1.appendChild(li4);}
+	if(tempArray.length==5){
+	var li5=document.createElement("li");
+	li5.appendChild(document.createTextNode(tempArray[4]));
+	list1.appendChild(li5);}
+	document.getElementById('leaderboardsDisplay').appendChild(list1);
+	};
+</script>
+<div id="leaderboardsDisplay" >
+Leaderboards
+<script>
+
+</script></div>
+<button id="button" onclick="beginGame(9)">Easy</button>
+<button id="button" onclick="beginGame(16)">Hard</button>
+
+</div>
+<div id="3b" style="
+display:none !important;margin:200px 350px auto 350px;border:solid #A52A2A 2px;clear:both;float:left;cursor:grabbing;
+">
+<div id="row">
+<div id="13b" class="blocks" onclick="count(document.getElementById('13b').textContent,9);" ></div>
+<div id="23b" class="blocks" onclick="count(document.getElementById('23b').textContent,9);"></div>
+<div id="33b" class="blocks" onclick="count(document.getElementById('33b').textContent,9);"></div>
+</div>
+<br>
+<div id ="row">
+<div id="43b" class="blocks" onclick="count(document.getElementById('43b').textContent,9);"></div>
+<div id="53b" class="blocks" onclick="count(document.getElementById('53b').textContent,9);"></div>
+<div id="63b" class="blocks" onclick="count(document.getElementById('63b').textContent,9);"></div>
+</div>
+<br>
+<div id="row">
+<div id="73b" class="blocks" onclick="count(document.getElementById('73b').textContent,9);" ></div>
+<div id="83b" class="blocks" onclick="count(document.getElementById('83b').textContent,9);" ></div>
+<div id="93b" class="blocks" onclick="count(document.getElementById('93b').textContent,9);" ></div>
+</div>
+</div>
+
+<div id="4b" style="display:none;margin:100px 250px auto 300px;border:solid #A52A2A 2px;float:left;clear:both;cursor:grabbing;">
+<div id="14b" class="blocks" onclick="count(document.getElementById('14b').textContent,16);" ></div>
+<div id="24b" class="blocks" onclick="count(document.getElementById('24b').textContent,16);"></div>
+<div id="34b" class="blocks" onclick="count(document.getElementById('34b').textContent,16);"></div>
+<div id="44b" class="blocks" onclick="count(document.getElementById('44b').textContent,16);"></div>
+
+<br>
+<div id="row">
+<div id="54b" class="blocks" onclick="count(document.getElementById('54b').textContent,16);"></div>
+<div id="64b" class="blocks" onclick="count(document.getElementById('64b').textContent,16);"></div>
+<div id="74b" class="blocks" onclick="count(document.getElementById('74b').textContent,16);"></div>
+<div id="84b" class="blocks" onclick="count(document.getElementById('84b').textContent,16);"></div>
+
+</div>
+<br>
+<div id="row">
+<div id="94b" class="blocks" onclick="count(document.getElementById('94b').textContent,16);"></div>
+<div id="104b" class="blocks" onclick="count(document.getElementById('104b').textContent,16);"></div>
+<div id="114b" class="blocks" onclick="count(document.getElementById('114b').textContent,16);"></div>
+<div id="124b" class="blocks" onclick="count(document.getElementById('124b').textContent,16);"></div>
+
+</div>
+<br>
+<div id="row">
+<div id="134b" class="blocks" onclick="count(document.getElementById('134b').textContent,16);" ></div>
+<div id="144b" class="blocks" onclick="count(document.getElementById('144b').textContent,16);"></div>
+<div id="154b" class="blocks" onclick="count(document.getElementById('154b').textContent,16);"></div>
+<div id="164b" class="blocks" onclick="count(document.getElementById('164b').textContent,16);"></div>
+
+</div>
+</div>
+
+<script>
+function beginGame(noGrid){
+
+let leaderText="leaderboards"+String(Math.sqrt(noGrid));
+if(localStorage[leaderText])
+displayLeaderboards(noGrid);
+console.log(noGrid);
+timerStart(noGrid);
+if(noGrid==9){
+document.getElementById('3b').style.display="block";
+document.getElementById('4b').style.display="none";
+
+};
+if(noGrid==16){
+document.getElementById('3b').style.display="none";
+document.getElementById('4b').style.display="block";
+};
+
+let arr=[];
+while(arr.length!=noGrid){
+let num=Math.floor(Math.random()*noGrid+1);
+if(arr.indexOf(num)==-1) arr.push(num);
+};
+console.log(arr);
+for(let x=0;x<=noGrid-1;x++)
+{
+	let divId=String(x+1);
+	divId+=String(Math.sqrt(noGrid))+"b";
+	document.getElementById(divId).textContent=arr[x];
+};
+for(let x=0;x<=noGrid-1;x++){
+	let pixCount=254/noGrid;
+	let clrStr="rgb("+`${255-arr[x]*pixCount}`+","+`${255-arr[x]*pixCount}`+","+`${255-arr[x]*pixCount}`+")";
+	let clrTxt="rgb("+`${arr[x]*pixCount}`+","+`${arr[x]*pixCount}`+",0"+")";
+	console.log(clrStr);
+	let divId=String(x+1);
+	divId+=String(Math.sqrt(noGrid))+"b";
+	document.getElementById(divId).style.backgroundColor=clrStr;
+	document.getElementById(divId).style.color=clrTxt;
+	};
+	};
+	let reqNum=1;
+function count(e,noGrid){
+console.log(Number(e));
+	
+if(Number(e)==reqNum){
+	corrSound.play();
+	if(reqNum==noGrid){
+		window.alert("you Completed!");
+		reqNume=1;
+		clearTimeout(myTime);
+		timerEnd(noGrid);
+			
+		}
+	else reqNum++;
+	}
+	else {wrongSound.play();}
+};
+
+
+var timer;
+var time=0;
+var myTime;
+function timerStart(noGrid){
+	time=0;
+	
+	timerWork();
+	function timerWork(){
+	myTime=setTimeout(function(){
+	var timerDiv=document.getElementById('timer');
+	time++;
+	timerDiv.textContent=time/100;
+	timerWork();
+	},10);};
+	reqNum=1;};
+	
+function timerEnd(noGrid){
+	var timerDiv=document.getElementById('timer');
+	var time=timerDiv.textContent;
+	clearTimeout(myTime);
+	alert("your time:"+time);
+	update(time,noGrid);
+	let leaderText="leaderboards"+String(Math.sqrt(noGrid));
+	console.log(JSON.parse(localStorage[leaderText]));
+	displayLeaderboards(noGrid);
+	};
+
+function update(e,noGrid){
+	var usedArray=[];
+	usedArray.push(String(e));
+	let leaderText="leaderboards"+String(Math.sqrt(noGrid));
+	
+	let ab=localStorage.getItem(leaderText);
+	let useArray = JSON.parse(ab);
+	let positionIndicator=3;
+	console.log(useArray);
+	let tempArray=[];
+	tempArray=useArray;
+	console.log(tempArray);	
+	if(localStorage[leaderText]){
+	for(let it1=0;it1<tempArray.length;it1++){
+		
+		if(Number(tempArray[it1])>Number(usedArray[0])){
+			alert("congratulations!,"+`${it1+1}`+" position!");
+			tempArray.splice(it1,0,usedArray[0]);
+			positionIndicator=0;
+			localStorage.setItem(leaderText,JSON.stringify(tempArray));
+			break;
+		};
+	};
+	if(tempArray.length<5 && Number(usedArray[0])>Number(tempArray[0]) && positionIndicator!=0){
+		tempArray.push(String(e));
+		localStorage.setItem(leaderText,JSON.stringify(tempArray));
+		alert("congratulations,"+`${tempArray.length}`+" position!");
+		positionIndicator=1;
+		};
+	if(tempArray.length>5){
+		tempArray.splice(5,tempArray.length-5);
+		localStorage.setItem(leaderText,JSON.stringify(tempArray));
+		};
+
+	}
+	else {localStorage.setItem(leaderText,JSON.stringify(usedArray));
+	alert("congratulations, 1 position!");
+	}};
+
+	
+
+</script>
+</div>
+</body>
+</html>

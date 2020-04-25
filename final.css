@@ -23,6 +23,13 @@ body{
 	width:1060px;
 }
 
+#row{
+	
+}
+@keyframes move{
+	from{transform:translateX(357)}
+to{transform:translateY(597)}}
+
 #timer{
 	display:inline;
 	float:left;
@@ -45,7 +52,7 @@ width:150px;border-color:#8B4513;background-color:#ADFF2F;clear:right
 }
 
 #button{
-height:50px;width:200px;font-size:30px;float:left;
+height:50px;width:200px;font-size:30px;float:left;margin-bottom:10px;
 
 }
 #row{
