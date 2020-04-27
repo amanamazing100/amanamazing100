@@ -205,52 +205,52 @@ Leaderboards
 display:none !important;margin:200px 350px auto 350px;border:solid #A52A2A 2px;clear:both;float:left;cursor:grabbing;
 ">
 <div id="row">
-<div id="13b" class="blocks" onclick="count(document.getElementById('13b').textContent,9);" ></div>
-<div id="23b" class="blocks" onclick="count(document.getElementById('23b').textContent,9);"></div>
-<div id="33b" class="blocks" onclick="count(document.getElementById('33b').textContent,9);"></div>
+<div id="13b" class="blocks" onclick="count(document.getElementById('13b').textContent,9,'13b');" ></div>
+<div id="23b" class="blocks" onclick="count(document.getElementById('23b').textContent,9,'23b');"></div>
+<div id="33b" class="blocks" onclick="count(document.getElementById('33b').textContent,9,'33b');"></div>
 </div>
 <br>
 <div id ="row">
-<div id="43b" class="blocks" onclick="count(document.getElementById('43b').textContent,9);"></div>
-<div id="53b" class="blocks" onclick="count(document.getElementById('53b').textContent,9);"></div>
-<div id="63b" class="blocks" onclick="count(document.getElementById('63b').textContent,9);"></div>
+<div id="43b" class="blocks" onclick="count(document.getElementById('43b').textContent,9,'43b');"></div>
+<div id="53b" class="blocks" onclick="count(document.getElementById('53b').textContent,9,'53b');"></div>
+<div id="63b" class="blocks" onclick="count(document.getElementById('63b').textContent,9,'63b');"></div>
 </div>
 <br>
 <div id="row">
-<div id="73b" class="blocks" onclick="count(document.getElementById('73b').textContent,9);" ></div>
-<div id="83b" class="blocks" onclick="count(document.getElementById('83b').textContent,9);" ></div>
-<div id="93b" class="blocks" onclick="count(document.getElementById('93b').textContent,9);" ></div>
+<div id="73b" class="blocks" onclick="count(document.getElementById('73b').textContent,9,'73b');" ></div>
+<div id="83b" class="blocks" onclick="count(document.getElementById('83b').textContent,9,'83b');" ></div>
+<div id="93b" class="blocks" onclick="count(document.getElementById('93b').textContent,9,'93b');" ></div>
 </div>
 </div>
 
 <div id="4b" style="display:none;margin:100px 250px auto 300px;border:solid #A52A2A 2px;float:left;clear:both;cursor:grabbing;">
-<div id="14b" class="blocks" onclick="count(document.getElementById('14b').textContent,16);" ></div>
-<div id="24b" class="blocks" onclick="count(document.getElementById('24b').textContent,16);"></div>
-<div id="34b" class="blocks" onclick="count(document.getElementById('34b').textContent,16);"></div>
-<div id="44b" class="blocks" onclick="count(document.getElementById('44b').textContent,16);"></div>
+<div id="14b" class="blocks" onclick="count(document.getElementById('14b').textContent,16,'14b');" ></div>
+<div id="24b" class="blocks" onclick="count(document.getElementById('24b').textContent,16,'24b');"></div>
+<div id="34b" class="blocks" onclick="count(document.getElementById('34b').textContent,16,'34b');"></div>
+<div id="44b" class="blocks" onclick="count(document.getElementById('44b').textContent,16,'44b');"></div>
 
 <br>
 <div id="row">
-<div id="54b" class="blocks" onclick="count(document.getElementById('54b').textContent,16);"></div>
-<div id="64b" class="blocks" onclick="count(document.getElementById('64b').textContent,16);"></div>
-<div id="74b" class="blocks" onclick="count(document.getElementById('74b').textContent,16);"></div>
-<div id="84b" class="blocks" onclick="count(document.getElementById('84b').textContent,16);"></div>
-
-</div>
-<br>
-<div id="row">
-<div id="94b" class="blocks" onclick="count(document.getElementById('94b').textContent,16);"></div>
-<div id="104b" class="blocks" onclick="count(document.getElementById('104b').textContent,16);"></div>
-<div id="114b" class="blocks" onclick="count(document.getElementById('114b').textContent,16);"></div>
-<div id="124b" class="blocks" onclick="count(document.getElementById('124b').textContent,16);"></div>
+<div id="54b" class="blocks" onclick="count(document.getElementById('54b').textContent,16,'54b');"></div>
+<div id="64b" class="blocks" onclick="count(document.getElementById('64b').textContent,16,'64b');"></div>
+<div id="74b" class="blocks" onclick="count(document.getElementById('74b').textContent,16,'74b');"></div>
+<div id="84b" class="blocks" onclick="count(document.getElementById('84b').textContent,16,'84b');"></div>
 
 </div>
 <br>
 <div id="row">
-<div id="134b" class="blocks" onclick="count(document.getElementById('134b').textContent,16);" ></div>
-<div id="144b" class="blocks" onclick="count(document.getElementById('144b').textContent,16);"></div>
-<div id="154b" class="blocks" onclick="count(document.getElementById('154b').textContent,16);"></div>
-<div id="164b" class="blocks" onclick="count(document.getElementById('164b').textContent,16);"></div>
+<div id="94b" class="blocks" onclick="count(document.getElementById('94b').textContent,16,'94b');"></div>
+<div id="104b" class="blocks" onclick="count(document.getElementById('104b').textContent,16,'104b');"></div>
+<div id="114b" class="blocks" onclick="count(document.getElementById('114b').textContent,16,'114b');"></div>
+<div id="124b" class="blocks" onclick="count(document.getElementById('124b').textContent,16,'124b');"></div>
+
+</div>
+<br>
+<div id="row">
+<div id="134b" class="blocks" onclick="count(document.getElementById('134b').textContent,16,'134b');" ></div>
+<div id="144b" class="blocks" onclick="count(document.getElementById('144b').textContent,16,'144b');"></div>
+<div id="154b" class="blocks" onclick="count(document.getElementById('154b').textContent,16,'154b');"></div>
+<div id="164b" class="blocks" onclick="count(document.getElementById('164b').textContent,16,'164b');"></div>
 
 </div>
 </div>
@@ -297,11 +297,14 @@ for(let x=0;x<=noGrid-1;x++){
 	};
 	};
 	let reqNum=1;
-function count(e,noGrid){
+function count(e,noGrid,gridId){
 console.log(Number(e));
 	
 if(Number(e)==reqNum){
 	corrSound.play();
+	let strin=String(gridId);;
+	document.getElementById(strin).textContent="";
+	
 	if(reqNum==noGrid){
 		window.alert("you Completed!");
 		reqNume=1;
