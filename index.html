@@ -302,10 +302,17 @@ console.log(Number(e));
 	console.log(gridId);
 if(Number(e)==reqNum){
 	corrSound.play();
-	let strin=String(gridId);;
+	let strin=String(gridId);
+	if(Number(e)<=noGrid)
+	{
+	let num_temp=Number(e)+noGrid;
+	let strToPut=String(num_temp);
+	document.getElementById(strin).textContent=strToPut;
+	}
+	if(Number(e)>noGrid)
 	document.getElementById(strin).textContent="";
 	
-	if(reqNum==noGrid){
+	if(reqNum==2*noGrid){
 		window.alert("you Completed!");
 		reqNume=1;
 		clearTimeout(myTime);
