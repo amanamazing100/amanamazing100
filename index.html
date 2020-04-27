@@ -308,6 +308,12 @@ if(Number(e)==reqNum){
 	let num_temp=Number(e)+noGrid;
 	let strToPut=String(num_temp);
 	document.getElementById(strin).textContent=strToPut;
+	let clrNum=Number(strToPut);
+	let pixCount=254/40;
+	let clrStr="rgb("+`${255-clrNum*pixCount}`+","+`${255-clrNum*pixCount}`+","+`${255-clrNum*pixCount}`+")";
+	let clrTxt="rgb("+`${clrNum*pixCount}`+","+`${clrNum*pixCount}`+",0"+")";
+	document.getElementById(strin).style.backgroundColor=clrStr;
+	document.getElementById(strin).style.color=clrTxt;
 	}
 	if(Number(e)>40-noGrid)
 	document.getElementById(strin).textContent="";
