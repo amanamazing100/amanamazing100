@@ -286,7 +286,7 @@ for(let x=0;x<=noGrid-1;x++)
 	document.getElementById(divId).textContent=arr[x];
 };
 for(let x=0;x<=noGrid-1;x++){
-	let pixCount=254/noGrid;
+	let pixCount=254/40;
 	let clrStr="rgb("+`${255-arr[x]*pixCount}`+","+`${255-arr[x]*pixCount}`+","+`${255-arr[x]*pixCount}`+")";
 	let clrTxt="rgb("+`${arr[x]*pixCount}`+","+`${arr[x]*pixCount}`+",0"+")";
 	console.log(clrStr);
