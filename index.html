@@ -303,16 +303,16 @@ console.log(Number(e));
 if(Number(e)==reqNum){
 	corrSound.play();
 	let strin=String(gridId);
-	if(Number(e)<=noGrid)
+	if(Number(e)<=40-noGrid)
 	{
 	let num_temp=Number(e)+noGrid;
 	let strToPut=String(num_temp);
 	document.getElementById(strin).textContent=strToPut;
 	}
-	if(Number(e)>noGrid)
+	if(Number(e)>40-noGrid)
 	document.getElementById(strin).textContent="";
-	
-	if(reqNum==2*noGrid){
+	if(reqNum==40){
+		window.alert("you Completed!");
 		window.alert("you Completed!");
 		reqNume=1;
 		clearTimeout(myTime);
